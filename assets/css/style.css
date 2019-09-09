@@ -5,3 +5,7 @@ body {
 h4 {
     background: black;
 }
+
+.jumbotron {
+    opacity: 0.5;
+}
