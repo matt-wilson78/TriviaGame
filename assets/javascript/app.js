@@ -10,22 +10,73 @@
 // * On the final screen, show the number of correct answers, incorrect answers, and an option to restart the game (without reloading the page).
 
 //What variables will I need?
-    //array for questions
-    //corresponding array for answers?
-    //correct answers
-    //wrong answers
-    //array for different congrats for correct answers
+//array for questions
+//corresponding array for answers?
+//correct answers
+//wrong answers
+//array for different congrats for correct answers
 
 //What functions will I need?
-    //function to run through array & post questions & answers
-    //function to check for right answer
-    //timer for each question
-    //restart game
+//function to run through array & post questions & answers
+//function to check for right answer
+//timer for each question
+//restart game
 
 //What will I use jquery for?
-    //pop questions onto screen
-    //show congrats screen
-    //show final score screen
-    //click functions for answers
+//pop questions onto screen
+//show congrats screen
+//show final score screen
+//click functions for answers
 
-
+var questions = [
+    {
+        question: "",
+        choices: [],
+        answer: ,
+    },
+    {
+        question: "",
+        choices: [],
+        answer: ,
+    },
+    {
+        question: "",
+        choices: [],
+        answer: ,
+    },
+    {
+        question: "",
+        choices: [],
+        answer: ,
+    },
+    {
+        question: "",
+        choices: [],
+        answer: ,
+    },
+    {
+        question: "",
+        choices: [],
+        answer: ,
+    },
+    {
+        question: "",
+        choices: [],
+        answer: ,
+    },
+    {
+        question: "",
+        choices: [],
+        answer: ,
+    },
+    {
+        question: "",
+        choices: [],
+        answer: ,
+    },
+    {
+        question: "",
+        choices: [],
+        answer: ,
+    },
+]
