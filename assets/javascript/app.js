@@ -30,53 +30,57 @@
 
 var questions = [
     {
-        question: "",
-        choices: [],
-        answer: ,
+        question: "Which of the following is NOT the subject of a song on the 'Animals' album?",
+        choices: ["Cow", "Sheep", "Pig", "Dog"],
+        answer: 0,
     },
     {
-        question: "",
-        choices: [],
-        answer: ,
+        question: "Of the founding members of Pink Floyd, which one released an album titled 'The Madcap Laughs'?",
+        choices: ["Roger Waters", "Nick Mason", "Syd Barrett", "Richard Wright"],
+        answer: 2,
     },
     {
-        question: "",
-        choices: [],
-        answer: ,
+        question: "How many weeks has 'Darkside of the Moon' spent on the Billboard Top 200 chart?",
+        choices: ["278", "16", "114", "937"],
+        answer: 3,
     },
     {
-        question: "",
-        choices: [],
-        answer: ,
+        question: "What ancient city was the setting for an iconic 1974 live recording?",
+        choices: ["Kathmandu", "Pompeii", "Athens", "Cairo"],
+        answer: 1,
     },
     {
-        question: "",
-        choices: [],
-        answer: ,
+        question: "This is one of the most well known guitar solo's of all time. What song is it from?",
+        choices: ["Another Brink in the Wall Part 2", "Echoes", "Wish You Were Here", "Comfortably Numb"],
+        answer: 3,
     },
     {
-        question: "",
-        choices: [],
-        answer: ,
+        question: "What is the name of Pink Floyd's first studio album after Roger Waters was out of the band?",
+        choices: ["The Final Cut", "Pipers at the Gates of Dawn", "A Momentary Lapse of Reason", "Atom Heart Mother"],
+        answer: 2,
     },
     {
-        question: "",
-        choices: [],
-        answer: ,
+        question: "Who is the song 'Shine On You Crazy Diamond' about?",
+        choices: ["Syd Barrett", "Charles Manson", "Roger Waters", "John Lennon"],
+        answer: 0,
     },
     {
-        question: "",
-        choices: [],
-        answer: ,
+        question: "What album did David Gilmour first play on?",
+        choices: ["Pipers at the Gates of Dawn", "Ummagumma", "Dark Side of the Moon", "A Saucerful of Secrets"],
+        answer: 3,
     },
     {
-        question: "",
-        choices: [],
-        answer: ,
+        question: "What was the name of Pink Floyd's first single?",
+        choices: ["Wish You Were Here", "Bike", "Arnold Layne", "See Emily Play"],
+        answer: 2,
     },
     {
-        question: "",
-        choices: [],
-        answer: ,
+        question: "Which of the following is NOT a Pink Floyd album?",
+        choices: ["The Final Cut", "Wish You Were Here", "On An Island", "The Division Bell"],
+        answer: 2,
     },
 ]
+
+for (let i = 0; i < questions.length; i++) {
+    console.log(questions[i]);    
+}
