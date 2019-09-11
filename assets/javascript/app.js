@@ -28,7 +28,7 @@
 //show final score screen
 //click functions for answers
 
-var questions = [
+var quizContent = [
     {
         question: "Which of the following is NOT the subject of a song on the 'Animals' album?",
         choices: ["Cow", "Sheep", "Pig", "Dog"],
@@ -81,6 +81,6 @@ var questions = [
     },
 ]
 
-for (let i = 0; i < questions.length; i++) {
-    console.log(questions[i]);    
+for (let i = 0; i < quizContent.length; i++) {
+    console.log(quizContent[i].question);
 }
