@@ -82,7 +82,7 @@ var quizContent = [
 ]
 
 var userGuess = "";
-var countDown = 3;
+var countDown = 30;
 var correct = 0;
 var wrong = 0;
 var currentQuestion = 0;
@@ -97,7 +97,7 @@ function start() {
 //function for timer
 function timerCountdown() {
     countDown--;
-    $("#timerHere").html("Timer: " + countDown);
+    $("#timerHere").html(countDown);
     if (countDown === 0) {
         clearInterval(timer);
         wrong++;
@@ -121,14 +121,14 @@ function nextQuestion() {
 //Function to push individual questions to the DOM, also begin timer for that question
 function quizPopulate() {
 
-    countDown = 3;
+    countDown = 30;
     timer = setInterval(timerCountdown, 1000);
 
     var question = quizContent[currentQuestion].question;
     var choices = quizContent[currentQuestion].choices;
 
-    $("#timerHere").html("Timer: " + countDown);
-    $("#questionCard").html(question);
+    $("#timerHere").html(countDown);
+    $("#questionCard").html("<h3>" + question + "</h3>");
     choicesToDOM(choices);
 
 
@@ -140,7 +140,7 @@ function choicesToDOM(choices) {
     $("#answerCard").empty();
 
     for (var i = 0; i < choices.length; i++) {
-        var populateAnswers = $("<button class='btn btn-primary mt-2 mb-2 w-25 text-center'</button>");
+        var populateAnswers = $("<button class='btn btn-outline-dark mt-2 mb-2 p-2 font-weight-bolder'></button>");
         populateAnswers.text(choices[i]);
         populateAnswers.attr("data-answer", choices[i]);
         $("#answerCard").append(populateAnswers);
