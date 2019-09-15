@@ -50,9 +50,9 @@ var quizContent = [
         answer: "Pompeii"
     },
     {
-        question: "This is one of the most well known guitar solo's of all time. What song is it from?",
-        choices: ["Another Brink in the Wall Part 2", "Echoes", "Wish You Were Here", "Comfortably Numb"],
-        answer: "Comfortably Numb"
+        question: "What song have you been listening to?",
+        choices: ["Another Brink in the Wall Part 2", "Echoes", "Wish You Were Here", "Time"],
+        answer: "Time"
     },
     {
         question: "What is the name of Pink Floyd's first studio album after Roger Waters was out of the band?",
@@ -82,7 +82,7 @@ var quizContent = [
 ]
 
 var userGuess = "";
-var countDown = 30;
+var countDown = 3;
 var correct = 0;
 var wrong = 0;
 var currentQuestion = 0;
@@ -121,26 +121,37 @@ function nextQuestion() {
 //Function to push individual questions to the DOM, also begin timer for that question
 function quizPopulate() {
 
-    countDown = 30;
+    countDown = 3;
     timer = setInterval(timerCountdown, 1000);
 
     var question = quizContent[currentQuestion].question;
-    var answers = quizContent[currentQuestion].choices;
+    var choices = quizContent[currentQuestion].choices;
 
     $("#timerHere").html("Timer: " + countDown);
-    $("#questionCard").html(question)
+    $("#questionCard").html(question);
+    choicesToDOM(choices);
 
 
 }
 
 //Function to push choices for corresponding question to DOM
-// function choicesPopulate(choices) {
+function choicesToDOM(choices) {
 
-//     var result = "";
+    $("#answerCard").empty();
 
-//     for (var i = 0; i < choices.length; i++) {
-//         result += "<p class='choice' data-answer='"
-//     }
-// }
+    for (var i = 0; i < choices.length; i++) {
+        var populateAnswers = $("<button class='btn btn-primary mt-2 mb-2 w-25 text-center'</button>");
+        populateAnswers.text(choices[i]);
+        populateAnswers.attr("data-answer", choices[i]);
+        $("#answerCard").append(populateAnswers);
+
+    }
+}
+
+//Function to check if answer is correct, add to correct or wrong, move to next question
+
+//Function to push final "score" screen to DOM
+
+//Function to dispay wrong, right, or time up
 
 quizPopulate();
