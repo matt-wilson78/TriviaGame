@@ -32,55 +32,115 @@ var quizContent = [
     {
         question: "Which of the following is NOT the subject of a song on the 'Animals' album?",
         choices: ["Cow", "Sheep", "Pig", "Dog"],
-        answer: 0,
+        answer: "Cow"
     },
     {
-        question: "Of the founding members of Pink Floyd, which one released an album titled 'The Madcap Laughs'?",
-        choices: ["Roger Waters", "Nick Mason", "Syd Barrett", "Richard Wright"],
-        answer: 2,
+        question: "Throughout the years, members & former members of Pink Floyd have released quite a few solo albums. Who has NOT released a solo album??",
+        choices: ["Roger Waters", "Nick Mason", "Syd Barrett", "David Gilmour"],
+        answer: "Nick Mason"
     },
     {
         question: "How many weeks has 'Darkside of the Moon' spent on the Billboard Top 200 chart?",
         choices: ["278", "16", "114", "937"],
-        answer: 3,
+        answer: "937"
     },
     {
         question: "What ancient city was the setting for an iconic 1974 live recording?",
         choices: ["Kathmandu", "Pompeii", "Athens", "Cairo"],
-        answer: 1,
+        answer: "Pompeii"
     },
     {
         question: "This is one of the most well known guitar solo's of all time. What song is it from?",
         choices: ["Another Brink in the Wall Part 2", "Echoes", "Wish You Were Here", "Comfortably Numb"],
-        answer: 3,
+        answer: "Comfortably Numb"
     },
     {
         question: "What is the name of Pink Floyd's first studio album after Roger Waters was out of the band?",
         choices: ["The Final Cut", "Pipers at the Gates of Dawn", "A Momentary Lapse of Reason", "Atom Heart Mother"],
-        answer: 2,
+        answer: "A Momentary Lapse of Reason"
     },
     {
         question: "Who is the song 'Shine On You Crazy Diamond' about?",
         choices: ["Syd Barrett", "Charles Manson", "Roger Waters", "John Lennon"],
-        answer: 0,
+        answer: "Syd Barrett"
     },
     {
         question: "What album did David Gilmour first play on?",
         choices: ["Pipers at the Gates of Dawn", "Ummagumma", "Dark Side of the Moon", "A Saucerful of Secrets"],
-        answer: 3,
+        answer: "A Saucerful of Secrets"
     },
     {
         question: "What was the name of Pink Floyd's first single?",
         choices: ["Wish You Were Here", "Bike", "Arnold Layne", "See Emily Play"],
-        answer: 2,
+        answer: "Arnold Layne"
     },
     {
         question: "Which of the following is NOT a Pink Floyd album?",
         choices: ["The Final Cut", "Wish You Were Here", "On An Island", "The Division Bell"],
-        answer: 2,
+        answer: "On An Island"
     },
 ]
 
-for (let i = 0; i < quizContent.length; i++) {
-    console.log(quizContent[i].question);
+var userGuess = "";
+var countDown = 30;
+var correct = 0;
+var wrong = 0;
+var currentQuestion = 0;
+var timer;
+
+//Function to start/ restart game
+
+function start() {
+
 }
+
+//function for timer
+function timerCountdown() {
+    countDown--;
+    $("#timerHere").html("Timer: " + countDown);
+    if (countDown === 0) {
+        clearInterval(timer);
+        wrong++;
+        nextQuestion();
+    }
+}
+
+//Function to move to next question or end game
+function nextQuestion() {
+
+    var quizOver = (quizContent.length - 1) === currentQuestion;
+    if (quizOver) {
+        console.log("Game Over")
+    } else {
+        currentQuestion++;
+        quizPopulate();
+
+    }
+}
+
+//Function to push individual questions to the DOM, also begin timer for that question
+function quizPopulate() {
+
+    countDown = 30;
+    timer = setInterval(timerCountdown, 1000);
+
+    var question = quizContent[currentQuestion].question;
+    var answers = quizContent[currentQuestion].choices;
+
+    $("#timerHere").html("Timer: " + countDown);
+    $("#questionCard").html(question)
+
+
+}
+
+//Function to push choices for corresponding question to DOM
+// function choicesPopulate(choices) {
+
+//     var result = "";
+
+//     for (var i = 0; i < choices.length; i++) {
+//         result += "<p class='choice' data-answer='"
+//     }
+// }
+
+quizPopulate();
