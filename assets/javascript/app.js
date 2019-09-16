@@ -99,13 +99,16 @@ function start() {
     var currentQuestion = 0;
     var timer;
 
-    $("#mainJumbo").html("<h2>Welcome! There is music, and you will need the sound on.</h2>");
-    $("#mainJumbo").append("<h2>You will have 30 seconds to answer each of the 10 following questions.</h2>");
-    $("#mainJumbo").append("<h2>Click the 'Start' button to begin. Good Luck!</h2>");
-    $("#mainJumbo").append("<button class='btn btn-primary startButton'>Start</button>");
+
+    $("#questionCard").html("<h2>Welcome! There is music, and you will need the sound on.</h2>");
+    $("#questionCard").append("<h2>You will have 30 seconds to answer each of the 10 following questions.</h2>");
+    $("#questionCard").append("<h2>Click the 'Start' button to begin. Good Luck!</h2>");
+    $("#answerCard").append("<button class='btn btn-primary startButton'>Start</button>");
 
     $(document).on("click", ".startButton", function () {
+
         quizPopulate();
+        play();
         console.log("test2");
     });
 
@@ -135,6 +138,7 @@ function nextQuestion() {
         console.log("Game Over")
     } else {
         currentQuestion++;
+        clearInterval(timer);
         quizPopulate();
 
     }
@@ -149,7 +153,9 @@ function quizPopulate() {
     var question = quizContent[currentQuestion].question;
     var choices = quizContent[currentQuestion].choices;
 
+
     $("#timerHere").html(countDown);
+    $("#questionCard").empty()
     $("#questionCard").html("<h3>" + question + "</h3>");
     choicesToDOM(choices);
 
@@ -192,11 +198,17 @@ function endGame() {
     $("#mainJumbo").append("<h3>You got " + correct + " correct</h3>");
     $("#mainJumbo").append("<h3>You got " + wrong + " wrong</h3>");
     $("#mainJumbo").append("<button class='btn btn-primary startButton'>Try Again</button>")
-        
+
+}
+
+//Function to play song
+function play() {
+    var audio = document.getElementById("audio");
+    audio.play();
 }
 
 //Function to dispay wrong, right, or time up
 
-//start();
+start();
 //quizPopulate();
-endGame();
+//endGame();
