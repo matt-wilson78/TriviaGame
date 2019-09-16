@@ -28,6 +28,9 @@
 //show final score screen
 //click functions for answers
 
+$(document).ready(function () {
+});
+
 var quizContent = [
     {
         question: "Which of the following is NOT the subject of a song on the 'Animals' album?",
@@ -101,11 +104,17 @@ function start() {
     $("#mainJumbo").append("<h2>Click the 'Start' button to begin. Good Luck!</h2>");
     $("#mainJumbo").append("<button class='btn btn-primary startButton'>Start</button>");
 
-    $(".document.body").on("click", ".startButton", function () {
+    $(document).on("click", ".startButton", function () {
         quizPopulate();
+        console.log("test2");
     });
 
 }
+
+// $(document).on("click", ".startButton", function () {
+//     quizPopulate();
+//     console.log('test2');
+// });
 
 //function for timer
 function timerCountdown() {
@@ -153,19 +162,41 @@ function choicesToDOM(choices) {
     $("#answerCard").empty();
 
     for (var i = 0; i < choices.length; i++) {
-        var populateAnswers = $("<button class='btn btn-outline-dark mt-2 mb-2 p-2 font-weight-bolder'></button>");
+        var populateAnswers = $("<button class='btn btn-outline-dark mt-2 mb-2 p-2 font-weight-bolder selection'></button>");
         populateAnswers.text(choices[i]);
-        populateAnswers.attr("data-answer", choices[i]);
+        populateAnswers.attr("answer-data", choices[i]);
         $("#answerCard").append(populateAnswers);
 
     }
 }
 
 //Function to check if answer is correct, add to correct or wrong, move to next question
+$(document).on("click", ".selection", function () {
+    var choiceSelected = $(this).attr("answer-data");
+    var correctAnswer = quizContent[currentQuestion].answer;
+
+    if (choiceSelected === correctAnswer) {
+        correct++;
+        nextQuestion();
+    } else {
+        wrong++;
+        nextQuestion();
+        console.log(wrong);
+    }
+});
+
 
 //Function to push final "score" screen to DOM
+function endGame() {
+    $("#mainJumbo").html("<h1>Game Over</h2>");
+    $("#mainJumbo").append("<h3>You got " + correct + " correct</h3>");
+    $("#mainJumbo").append("<h3>You got " + wrong + " wrong</h3>");
+    $("#mainJumbo").append("<button class='btn btn-primary startButton'>Try Again</button>")
+        
+}
 
 //Function to dispay wrong, right, or time up
 
-start();
-quizPopulate();
+//start();
+//quizPopulate();
+endGame();
