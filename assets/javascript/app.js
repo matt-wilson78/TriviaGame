@@ -81,7 +81,6 @@ var quizContent = [
     },
 ]
 
-var userGuess = "";
 var countDown = 30;
 var correct = 0;
 var wrong = 0;
@@ -91,6 +90,20 @@ var timer;
 //Function to start/ restart game
 
 function start() {
+    var countDown = 30;
+    var correct = 0;
+    var wrong = 0;
+    var currentQuestion = 0;
+    var timer;
+
+    $("#mainJumbo").html("<h2>Welcome! There is music, and you will need the sound on.</h2>");
+    $("#mainJumbo").append("<h2>You will have 30 seconds to answer each of the 10 following questions.</h2>");
+    $("#mainJumbo").append("<h2>Click the 'Start' button to begin. Good Luck!</h2>");
+    $("#mainJumbo").append("<button class='btn btn-primary startButton'>Start</button>");
+
+    $(".document.body").on("click", ".startButton", function () {
+        quizPopulate();
+    });
 
 }
 
@@ -154,4 +167,5 @@ function choicesToDOM(choices) {
 
 //Function to dispay wrong, right, or time up
 
+start();
 quizPopulate();
