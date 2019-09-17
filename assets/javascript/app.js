@@ -207,20 +207,20 @@ function endGame() {
         var wrong = 0;
         var currentQuestion = 0;
         var timer;
-        
+
         quizPopulate();
-    }); 
+    });
 
 }
 
 //Function to dispay wrong, right, or time up images (I wasn't able to get this working, tried multiple different ways but never had any luck, added an alert as a cheap way to break up questions)
-function wrongAnswer() {
-    var wrongArray = ["/assets/images/wrong1.png", "/assets/images/wrong2.jpg", "/assets/images/wrong3.jpg"];
+// function wrongAnswer() {
+//     var wrongArray = ["/assets/images/wrong1.png", "/assets/images/wrong2.jpg", "/assets/images/wrong3.jpg"];
 
-    for (var i = 0; i < wrongArray.length; i++) {
+//     for (var i = 0; i < wrongArray.length; i++) {
 
-    }
-}
+//     }
+// }
 
 start();
 //quizPopulate();
