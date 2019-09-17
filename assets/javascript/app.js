@@ -53,9 +53,9 @@ var quizContent = [
         answer: "Pompeii"
     },
     {
-        question: "What song have you been listening to?",
-        choices: ["Another Brink in the Wall Part 2", "Echoes", "Wish You Were Here", "Time"],
-        answer: "Time"
+        question: "Who wrote the majority of 'The Wall'?",
+        choices: ["Roger Waters", "David Gilmour", "Richard Wright", "Nick Mason"],
+        answer: "Roger Waters"
     },
     {
         question: "What is the name of Pink Floyd's first studio album after Roger Waters was out of the band?",
@@ -99,8 +99,7 @@ function start() {
     var currentQuestion = 0;
     var timer;
 
-
-    $("#questionCard").html("<h2>Welcome! There is music, and you will need the sound on.</h2>");
+    $("#questionCard").html("<h1>Welcome!</h1>");
     $("#questionCard").append("<h2>You will have 30 seconds to answer each of the 10 following questions.</h2>");
     $("#questionCard").append("<h2>Click the 'Start' button to begin. Good Luck!</h2>");
     $("#answerCard").append("<button class='btn btn-primary startButton'>Start</button>");
@@ -108,8 +107,6 @@ function start() {
     $(document).on("click", ".startButton", function () {
 
         quizPopulate();
-        play();
-        console.log("test2");
     });
 
 }
@@ -124,6 +121,7 @@ function timerCountdown() {
     countDown--;
     $("#timerHere").html(countDown);
     if (countDown === 0) {
+        alert("Time's Up!")
         clearInterval(timer);
         wrong++;
         nextQuestion();
@@ -135,7 +133,8 @@ function nextQuestion() {
 
     var quizOver = (quizContent.length - 1) === currentQuestion;
     if (quizOver) {
-        console.log("Game Over")
+        console.log("Game Over");
+        endGame();
     } else {
         currentQuestion++;
         clearInterval(timer);
@@ -182,9 +181,11 @@ $(document).on("click", ".selection", function () {
     var correctAnswer = quizContent[currentQuestion].answer;
 
     if (choiceSelected === correctAnswer) {
+        alert("Correct! Well Done!")
         correct++;
         nextQuestion();
     } else {
+        alert("Wrong!")
         wrong++;
         nextQuestion();
         console.log(wrong);
@@ -192,22 +193,34 @@ $(document).on("click", ".selection", function () {
 });
 
 
-//Function to push final "score" screen to DOM
+//Function to push final "score" screen to DOM, restart game
 function endGame() {
     $("#mainJumbo").html("<h1>Game Over</h2>");
     $("#mainJumbo").append("<h3>You got " + correct + " correct</h3>");
     $("#mainJumbo").append("<h3>You got " + wrong + " wrong</h3>");
-    $("#mainJumbo").append("<button class='btn btn-primary startButton'>Try Again</button>")
+    $("#mainJumbo").append("<button class='btn btn-primary restartGame mt-5'>Try Again</button>")
+
+    $(document).on("click", ".restartGame", function () {
+
+        var countDown = 30;
+        var correct = 0;
+        var wrong = 0;
+        var currentQuestion = 0;
+        var timer;
+        
+        quizPopulate();
+    }); 
 
 }
 
-//Function to play song
-function play() {
-    var audio = document.getElementById("audio");
-    audio.play();
-}
+//Function to dispay wrong, right, or time up images (I wasn't able to get this working, tried multiple different ways but never had any luck, added an alert as a cheap way to break up questions)
+function wrongAnswer() {
+    var wrongArray = ["/assets/images/wrong1.png", "/assets/images/wrong2.jpg", "/assets/images/wrong3.jpg"];
 
-//Function to dispay wrong, right, or time up
+    for (var i = 0; i < wrongArray.length; i++) {
+
+    }
+}
 
 start();
 //quizPopulate();
